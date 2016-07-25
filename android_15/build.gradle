@@ -14,6 +14,9 @@
  * the License.
  */
 
+
+apply plugin: "ros-android"
+
 dependencies {
   compile 'org.ros.rosjava_core:rosjava_geometry:[0.2,0.3)'
   compile 'com.android.support:support-v4:21.0.3'
@@ -32,4 +35,10 @@ android {
     versionCode 1
     versionName "1.0"
   }
+
+    packagingOptions {
+        /* https://github.com/rosjava/android_core/issues/194 */
+        exclude "META-INF/LICENSE.txt"
+        exclude "META-INF/NOTICE.txt"
+    }
 }

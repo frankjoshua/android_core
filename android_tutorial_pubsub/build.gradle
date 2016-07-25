@@ -14,6 +14,8 @@
  * the License.
  */
 
+apply plugin: "ros-android"
+
 dependencies {
   compile 'org.ros.rosjava_core:rosjava_tutorial_pubsub:[0.2,0.3)'
   compile project(':android_10')
@@ -30,5 +32,11 @@ android {
     targetSdkVersion 10
     versionCode 1
     versionName "1.0"
+  }
+
+  packagingOptions {
+    /* https://github.com/rosjava/android_core/issues/194 */
+    exclude "META-INF/LICENSE.txt"
+    exclude "META-INF/NOTICE.txt"
   }
 }

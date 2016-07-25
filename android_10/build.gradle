@@ -14,6 +14,8 @@
  * the License.
  */
 
+apply plugin: "ros-android"
+
 dependencies {
   compile "org.ros.rosjava_core:rosjava:[0.2,0.3)"
   compile "org.ros.rosjava_messages:diagnostic_msgs:[1.11,1.12)"
@@ -31,4 +33,10 @@ android {
     versionCode 1
     versionName "1.0"
   }
+
+    packagingOptions {
+        /* https://github.com/rosjava/android_core/issues/194 */
+        exclude "META-INF/LICENSE.txt"
+        exclude "META-INF/NOTICE.txt"
+    }
 }
