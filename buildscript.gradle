@@ -15,7 +15,37 @@
  */
 
 rootProject.buildscript {
-  apply from: "https://github.com/rosjava/rosjava_bootstrap/raw/indigo/buildscript.gradle"
+  String rosMavenPath = System.getenv("ROS_MAVEN_PATH")
+  String rosMavenRepository = System.getenv("ROS_MAVEN_REPOSITORY")
+  repositories {
+    if (rosMavenPath != null) {
+      rosMavenPath.tokenize(":").each { path ->
+        maven {
+          // We can't use uri() here because we aren't running inside something
+          // that implements the Script interface.
+          url "file:${path}"
+        }
+      }
+    }
+    maven {
+      url "http://repository.springsource.com/maven/bundles/release"
+    }
+    maven {
+      url "http://repository.springsource.com/maven/bundles/external"
+    }
+    if (rosMavenRepository != null) {
+      maven {
+        url rosMavenRepository
+      }
+    }
+    maven {
+      url "https://github.com/rosjava/rosjava_mvn_repo/raw/master"
+    }
+    mavenCentral()
+  }
+  dependencies {
+    classpath "org.ros.rosjava_bootstrap:gradle_plugins:[0.2,0.3)"
+  }
   dependencies {
     classpath "com.android.tools.build:gradle:2.1.2"
   }

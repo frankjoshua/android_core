@@ -24,6 +24,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import org.ros.address.InetAddressFactory;
 import org.ros.android.RosActivity;
+import org.ros.android.RosFragmentActivity;
 import org.ros.android.view.VirtualJoystickView;
 import org.ros.android.view.visualization.VisualizationView;
 import org.ros.android.view.visualization.layer.CameraControlLayer;
@@ -44,7 +45,7 @@ import org.ros.node.NodeMainExecutor;
  * @author munjaldesai@google.com (Munjal Desai)
  * @author moesenle@google.com (Lorenz Moesenlechner)
  */
-public class MainActivity extends RosActivity {
+public class MainActivity extends RosFragmentActivity {
 
   private VirtualJoystickView virtualJoystickView;
   private VisualizationView visualizationView;
