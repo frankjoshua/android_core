@@ -17,8 +17,7 @@
 apply plugin: "ros-android"
 
 dependencies {
-  compile project(':android_15')
-  compile project(':android_10')
+  compile project(':AndroidRosJava')
 }
 
 apply plugin: 'com.android.library'

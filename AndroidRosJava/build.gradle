@@ -19,7 +19,11 @@ apply plugin: "ros-android"
 
 dependencies {
   compile 'org.ros.rosjava_core:rosjava_geometry:[0.2,0.3)'
-  compile "com.android.support:support-v4:${supportLibVersion}"
+  if(supportLibVersion != null){
+    compile "com.android.support:support-v4:${supportLibVersion}"
+  } else {
+    compile "com.android.support:support-v4:24.2.0"
+  }
   compile 'org.ros.rosjava_messages:visualization_msgs:[1.11,1.12)'
   compile "org.ros.rosjava_messages:diagnostic_msgs:[1.11,1.12)"
   compile "org.ros.rosjava_messages:sensor_msgs:[1.11,1.12)"

@@ -17,18 +17,18 @@
 apply plugin: "ros-android"
 
 dependencies {
-  compile project(':android_10')
+  compile project(':AndroidRosJava')
 }
 
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 10
+  compileSdkVersion 15
 
   defaultConfig {
-    minSdkVersion 10
+    minSdkVersion 15
     applicationId "org.ros.android.android_tutorial_image_transport"
-    targetSdkVersion 10
+    targetSdkVersion 15
     versionCode 1
     versionName "1.0"
   }

@@ -29,4 +29,8 @@ allprojects {
     version = project.catkin.pkg.version
 }
 
+ext {
+    supportLibVersion = '24.2.0'
+}
+
 defaultTasks 'assembleRelease', 'uploadArchives'
